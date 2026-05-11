@@ -4,7 +4,7 @@ import styled from "styled-components";
 const BannerCVButton = () => {
   return (
     <StyledWrapper>
-      <button>
+      <button className="text-nowrap items-center flex">
         <svg
           viewBox="0 0 24 24"
           width={24}
@@ -26,6 +26,7 @@ const BannerCVButton = () => {
 
 const StyledWrapper = styled.div`
   button {
+  
     display: flex;
     color:white;
     align-items: center;

@@ -13,11 +13,12 @@ import ScrollFloat from "@/components/ui/ScrollFloat";
 export default function Home() {
   return (
     <main className="relative">
+      <div>
       <Navbar />
 
-    
+
       <section id="home" className="min-h-screen pt-10 px-4 max-w-7xl mx-auto flex flex-col items-center justify-center text-center">
-       
+
         <ScrollFloat
           animationDuration={1}
           ease='back.inOut(2)'
@@ -25,22 +26,22 @@ export default function Home() {
           scrollEnd='bottom bottom-=40%'
           stagger={0.03}
         >
-        
+
         </ScrollFloat>
-        
-      <BannerPage/>
+
+        <BannerPage />
       </section>
 
-     
+
       <section id="about" className="min-h-screen px-4 max-w-7xl mx-auto scroll-mt-20">
         <ScrollFloat
           animationDuration={1}
           stagger={0.05}
           textClassName="text-4xl font-bold"
         >
-        
+
         </ScrollFloat>
-         <AboutMe/>
+        <AboutMe />
       </section>
 
       {/* Projects Section */}
@@ -64,8 +65,10 @@ export default function Home() {
         >
           Get In Touch
         </ScrollFloat>
-      <Footer/>
+        Contact section
       </section>
+      <Footer />
+      </div>
     </main>
   );
 }

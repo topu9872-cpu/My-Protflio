@@ -1,4 +1,4 @@
-import React from "react";
+import { compareAsc, format } from "date-fns";
 
 const Footer = () => {
   return (
@@ -62,7 +62,7 @@ const Footer = () => {
 
       {/* ✨ bottom bar */}
       <div className="relative z-10 border-t border-white/10 py-6 text-center text-gray-400 text-sm">
-        © 2026 Made with ❤️ by Mehedi Hasan Topu
+        &copy; {`${format(new Date(), "yyyy")}`} Made with &hearts; by Mehedi Hasan Topu
       </div>
 
     </footer>

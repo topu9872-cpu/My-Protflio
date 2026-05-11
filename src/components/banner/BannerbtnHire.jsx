@@ -4,7 +4,7 @@ import styled from "styled-components";
 const HireButton = () => {
   return (
     <StyledWrapper>
-      <button>
+      <button className="text-nowrap items-center flex">
         <svg
           viewBox="0 0 24 24"
           width={24}

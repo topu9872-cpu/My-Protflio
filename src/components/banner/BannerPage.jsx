@@ -60,14 +60,14 @@ const BannerPage = () => {
         <div className="flex-1 flex  justify-center md:justify-end">
           <Image
             src="/assrts/228337083-removebg-preview.png"
-            width={500}
+            width={700}
             height={500}
             alt="topu"
             priority
             className="
               object-contain
               w-65
-              sm:w-[320px]
+              sm:w-100
               md:w-105
               h-auto
              
