@@ -26,7 +26,7 @@ const ThemeBtn = () => {
       className="w-12 h-7 shadow-[0_0_5px_#00ffff] flex items-center bg-blue-400 dark:bg-[#00ffff] rounded-full p-1 transition-all"
     >
       <div
-        className={`h-5 w-6 bg-white rounded-full flex items-center justify-center shadow-md transition-all duration-300
+        className={`h-5 w-6 bg-white rounded-full flex items-center justify-center shadow-md transition-all duration-200
         ${isDark ? "translate-x-4" : "translate-x-0"}`}
       >
         {isDark ? (

@@ -3,14 +3,14 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Navicon from "@/assrts/naviccon.png";
+import Navicon from "../../../public/assrts/naviccon.png";
 import ThemeBtn from "../ThemeBtn/ThemeBtn";
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("home");
-
+const sections = ["home", "about", "projects", "contact"];
   useEffect(() => {
-    const sections = ["home", "about", "projects", "contact"];
+    
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -40,22 +40,25 @@ const Navbar = () => {
     return () => observer.disconnect();
   }, []);
 
+
   const NavData = (
-    <ul className="flex items-center gap-4 sm:gap-6">
-      {["Home", "About", "Projects", "Contact"].map((item) => {
+    <ul className="flex items-center gap-6 sm:gap-10"> 
+      {sections.map((item) => {
         const id = item.toLowerCase();
         const isActive = activeSection === id;
 
         return (
           <li
             key={item}
-            className="relative cursor-pointer text-lg font-semibold transition-colors"
+            className="relative cursor-pointer transition-colors"
           >
             <a
               href={`#${id}`}
-              className={`duration-300 ${
-                isActive ? "text-sky-500 hover:text-sky-500" : ""
-              }`}
+              className={`duration-300 capitalize text-xl font-bold tracking-wide ${
+                isActive 
+                  ? "text-sky-500 scale-110" 
+                  : "  hover:scale-105"
+              } inline-block transition-transform`}
             >
               {item}
             </a>
@@ -63,7 +66,7 @@ const Navbar = () => {
             {isActive && (
               <motion.div
                 layoutId="activeTab"
-                className="absolute -bottom-1 left-0 right-0 h-0.5 bg-sky-500"
+                className="absolute -bottom-2 left-0 right-0 h-1 bg-sky-500 rounded-full"
                 transition={{
                   type: "spring",
                   stiffness: 380,
@@ -76,6 +79,8 @@ const Navbar = () => {
       })}
     </ul>
   );
+
+
 
   return (
     <motion.nav
@@ -93,7 +98,7 @@ const Navbar = () => {
           className="object-cover w-16 h-16  rounded-full"
         />
 
-        <div className="hidden md:flex items-center">{NavData}</div>
+        <div className="hidden  md:flex items-center">{NavData}</div>
 
         <div className="flex gap-3 items-center">
           <button className="cursor-pointer bg-linear-to-b from-sky-500 to-sky-600 shadow-[0px_4px_32px_0_rgba(14,165,233,0.7)] px-6 py-3 rounded-xl border border-white/10 text-white font-semibold group overflow-hidden hover:scale-[1.02] active:scale-95 transition-all duration-300">
@@ -102,7 +107,7 @@ const Navbar = () => {
                 Hire Me
               </p>
               <p className="absolute left-0 top-7 transition-all duration-700 ease-out-expo group-hover:top-0">
-                Let&apos;s Talk 🚀
+                Let,s Talk 
               </p>
             </div>
           </button>
