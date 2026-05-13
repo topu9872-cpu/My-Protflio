@@ -133,7 +133,7 @@ const StyledWrapper = styled.div`
     gap: 15px;
     margin-top: 5px;
   }
-
+    
   .social-account-container .social-accounts .social-button {
     background: linear-gradient(45deg, rgb(0, 0, 0) 0%, rgb(112, 112, 112) 100%);
     border: 5px solid white;
