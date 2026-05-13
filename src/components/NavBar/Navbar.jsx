@@ -3,34 +3,29 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Navicon from "../../../public/assrts/naviccon.png";
+import Navicon from "../../../public/assrts/naviccon.png"; // Ensure path is correct
 import ThemeBtn from "../ThemeBtn/ThemeBtn";
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("home");
-const sections = ["home", "about", "projects", "contact"];
+  const sections = ["home", "about", "projects", "contact"];
+
   useEffect(() => {
-    
+    const observerOptions = {
+      root: null,
+      // This margin tells the browser: "Only trigger when the section is 
+      // in the middle 40% of the screen."
+      rootMargin: "-30% 0px -30% 0px",
+      threshold: 0,
+    };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        let current = null;
-
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            current = entry.target.id;
-          }
-        });
-
-        if (current) {
-          setActiveSection(current);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
         }
-      },
-      {
-        root: null,
-        threshold: 0.6,
-      },
-    );
+      });
+    }, observerOptions);
 
     sections.forEach((id) => {
       const el = document.getElementById(id);
@@ -40,78 +35,54 @@ const sections = ["home", "about", "projects", "contact"];
     return () => observer.disconnect();
   }, []);
 
-
-  const NavData = (
-    <ul className="flex items-center gap-6 sm:gap-10"> 
-      {sections.map((item) => {
-        const id = item.toLowerCase();
-        const isActive = activeSection === id;
-
-        return (
-          <li
-            key={item}
-            className="relative cursor-pointer transition-colors"
-          >
-            <a
-              href={`#${id}`}
-              className={`duration-300 capitalize text-xl font-bold tracking-wide ${
-                isActive 
-                  ? "text-sky-500 scale-110" 
-                  : "  hover:scale-105"
-              } inline-block transition-transform`}
-            >
-              {item}
-            </a>
-
-            {isActive && (
-              <motion.div
-                layoutId="activeTab"
-                className="absolute -bottom-2 left-0 right-0 h-1 bg-sky-500 rounded-full"
-                transition={{
-                  type: "spring",
-                  stiffness: 380,
-                  damping: 30,
-                }}
-              />
-            )}
-          </li>
-        );
-      })}
-    </ul>
-  );
-
-
-
   return (
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 1, ease: "easeOut" }}
-      className="fixed top-0 left-0 z-50 w-full backdrop-blur-xl border-b border-white/10 shadow-xl"
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="fixed top-0 left-0 z-50 w-full backdrop-blur-xl border-b border-white/10 shadow-xl bg-black/10"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between py-3">
+        {/* Logo */}
         <Image
           src={Navicon}
-          width={100}
-          height={100}
+          width={60}
+          height={60}
           alt="Nav Logo"
-          className="object-cover w-16 h-16  rounded-full"
+          className="object-cover rounded-full"
         />
 
-        <div className="hidden  md:flex items-center">{NavData}</div>
+        {/* Navigation Links */}
+        <div className="hidden md:flex items-center">
+          <ul className="flex items-center gap-8">
+            {sections.map((item) => (
+              <li key={item} className="relative cursor-pointer">
+                <a
+                  href={`#${item}`}
+                  className={`capitalize text-lg font-semibold transition-colors duration-300 ${
+                    activeSection === item ? "text-sky-500" : "text-gray-400 hover:text-white"
+                  }`}
+                >
+                  {item}
+                </a>
+                
+                {/* Underline Animation */}
+                {activeSection === item && (
+                  <motion.div
+                    layoutId="activeTab"
+                    className="absolute -bottom-1 left-0 right-0 h-1 bg-sky-500 rounded-full"
+                  />
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-        <div className="flex gap-3 items-center">
-          <button className="cursor-pointer bg-linear-to-b from-sky-500 to-sky-600 shadow-[0px_4px_32px_0_rgba(14,165,233,0.7)] px-6 py-3 rounded-xl border border-white/10 text-white font-semibold group overflow-hidden hover:scale-[1.02] active:scale-95 transition-all duration-300">
-            <div className="relative h-6 overflow-hidden">
-              <p className="transition-transform duration-700 ease-out-expo group-hover:-translate-y-7">
-                Hire Me
-              </p>
-              <p className="absolute left-0 top-7 transition-all duration-700 ease-out-expo group-hover:top-0">
-                Let,s Talk 
-              </p>
-            </div>
+        {/* Right Side Buttons */}
+        <div className="flex gap-4 items-center">
+          <button className="bg-sky-600 hover:bg-sky-500 text-white px-5 py-2 rounded-lg font-medium transition-all active:scale-95">
+            Hire Me
           </button>
-
           <ThemeBtn />
         </div>
       </div>
