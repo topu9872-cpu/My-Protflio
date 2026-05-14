@@ -10,12 +10,12 @@ const BannerPage = () => {
         <Orb hoverIntensity={2} rotateOnHover hue={0} forceHoverState={false} />
       </div>
 
-      <div className="relative z-10 flex flex-col-reverse md:flex-row items-center justify-between w-full max-w-6xl px-6 md:px-10 gap-10 pointer-events-none">
+      <div className="relative z-10 flex flex-col-reverse md:flex-row items-center justify-between w-full max-w-6xl px-6 md:px-10 gap-10 ">
         <div className="flex-1 text-center md:text-left">
           <BannerText />
           <ul className="flex gap-3 mt-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-5 shadow-lg justify-between max-w-90 ">
             <li className="relative  w-8 h-8">
-              <a href="#" className="">
+              <a href="https://www.facebook.com/profile.php?id=61578488636020">
                 <Image
                   src="/assrts/icons8-facebook-circled.gif"
                   alt="facebook icon"
@@ -25,7 +25,7 @@ const BannerPage = () => {
               </a>
             </li>
             <li className="relative w-8 h-8">
-              <a href="#">
+              <a href="https://www.linkedin.com/in/mehedi-hasan-topu">
                 <Image
                   src="/assrts/icons8-linkedin.gif"
                   alt="facebook icon"
@@ -34,8 +34,18 @@ const BannerPage = () => {
                 />
               </a>
             </li>
+            <li className="relative w-8 h-8">
+              <a href="https://github.com/topu9872-cpu">
+                <Image
+                  src="/assrts/icons8-github-94.png"
+                  alt="facebook icon"
+                  fill
+                  className="rounded-full"
+                />
+              </a>
+            </li>
             <li className="relative w-8 h-8 animate__animated animate__bounce">
-              <a href="#" className="">
+              <a href="https://profile.indeed.com/?hl=en_US&co=US&from=gnav-homepage" className="">
                 <Image
                   src="/assrts/pngwing.com.png"
                   alt="facebook icon"
@@ -45,7 +55,7 @@ const BannerPage = () => {
               </a>
             </li>
             <li className="relative w-8 h-8 animate__animated animate__bounce">
-              <a href="#">
+              <a href="https://www.glassdoor.com/member/profile">
                 <Image
                   src="/assrts/250px-Glassdoor_logo.svg.png"
                   alt="facebook icon"

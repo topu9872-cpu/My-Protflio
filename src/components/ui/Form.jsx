@@ -7,47 +7,57 @@ const Form = () => {
     <StyledWrapper>
       <div className="container">
         <div className="heading">Contact Form</div>
-        <form className="form" >
-               <label className='flex text-cyan-500 text-lg font-bold'>Name:</label>
+        <form className="form">
+          <label className='flex text-cyan-500 text-lg font-bold'>Name:</label>
           <input placeholder="Name" id="name" name="name" type="text" className="input text-lg text-purple-500 font-semibold" required />
-            <label className='flex text-cyan-500 text-lg font-bold mt-2'>Email:</label>
+          
+          <label className='flex text-cyan-500 text-lg font-bold mt-2'>Email:</label>
           <input placeholder="E-mail" id="email" name="email" type="email" className="input text-lg text-purple-500 font-semibold" required />
-        
-           <label className='flex text-cyan-500 text-lg font-bold mt-2'>Message:</label>
-          <textarea rows='4' cols='5' placeholder="Message" id="text-area" name="text-area" type="text " className='w-full placeholder:text-taupe-400 shadow-[0_0_10px_white] text-lg text-purple-500 font-semibold mt-2 rounded-2xl px-2 border-2' />
 
-          <button type="submit" className="login-button" >Send Message</button>
+          <label className='flex text-cyan-500 text-lg font-bold mt-2'>Message:</label>
+          <textarea rows='4' cols='5' placeholder="Message" id="text-area" name="text-area" className='w-full placeholder:text-taupe-400 shadow-[0_0_10px_white] text-lg text-purple-500 font-semibold mt-2 rounded-2xl px-2 border-2' />
+
+          <button type="submit" className="login-button">Send Message</button>
         </form>
+
+      
         <div className="social-account-container">
           <span className="title">Or Contact in with</span>
           <div className="social-accounts">
-            <button className="social-button google">
+            
+            <a href="mailto:mehedihasant270@gmail.com" className="social-button google">
               <Image src="/assrts/tool iccons/icons8-gmail-logo-100.png" height={40} width={40} alt="gmail" className='object-cover' />
-            </button>
-            <button className="social-button apple">
-               <Image src="/assrts/tool iccons/icons8-whatsapp-94.png" height={40} width={40} alt="gmail" className='object-cover' />
-            </button>
-            <button className="social-button twitter">
-                <Image src="/assrts/tool iccons/icons8-telegram-94.png" height={40} width={40} alt="gmail" className='object-cover' />
-            </button>
+            </a>
+
+            <a href="https://wa.me/8801770977764" target="_blank" rel="noreferrer" className="social-button apple">
+              <Image src="/assrts/tool iccons/icons8-whatsapp-94.png" height={40} width={40} alt="whatsapp" className='object-cover' />
+            </a>
+
+            <a href="https://t.me/topu9872" target="_blank" rel="noreferrer" className="social-button twitter">
+              <Image src="/assrts/tool iccons/icons8-telegram-94.png" height={40} width={40} alt="telegram" className='object-cover' />
+            </a>
           </div>
         </div>
-
       </div>
     </StyledWrapper>
   );
 }
 
 const StyledWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
   .container {
-    width: 450px;
-   
-   
+    width: 100%;
+   width: 450px; /* Reset to 450px for better look */
     border-radius: 40px;
     padding: 25px 35px;
     border: 5px solid cyan;
     box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 30px 30px -20px;
     margin: 20px;
+    box-sizing: border-box;
   }
 
   .heading {
@@ -63,58 +73,30 @@ const StyledWrapper = styled.div`
 
   .form .input {
     width: 100%;
-   background:none;
+    background:none;
     border: none;
     padding: 15px 20px;
     border-radius: 16px;
     margin-top: 10px;
     box-shadow: #cff0ff 0px 0px 10px 5px;
-    border-inline: 2px solid transparent;
+    box-sizing: border-box;
   }
-
-  .form .input::-moz-placeholder {
-    color: rgb(170, 170, 170);
-  }
-
-  .form .input::placeholder {
-    color: rgb(170, 170, 170);
-  }
-
-  .form .input:focus {
-    outline: none;
-    border-inline: 2px solid #12b1d1;
-  }
-
-  
 
   .form .login-button {
     display: block;
     width: 100%;
     font-weight: bold;
-    background: linear-gradient(
-      45deg,
-      rgb(16, 137, 211) 0%,
-      rgb(18, 177, 209) 100%
-    );
+    background: linear-gradient(45deg, rgb(16, 137, 211) 0%, rgb(18, 177, 209) 100%);
     color: white;
     padding-block: 15px;
     margin: 20px auto;
     border-radius: 20px;
-    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
     border: none;
+    cursor: pointer;
     transition: all 0.2s ease-in-out;
   }
 
-  .form .login-button:hover {
-    transform: scale(1.03);
-    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
-  }
-
-  .form .login-button:active {
-    transform: scale(0.95);
-    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
-  }
-
+  /* RESTORED SOCIAL UI STYLES */
   .social-account-container {
     margin-top: 25px;
   }
@@ -124,6 +106,7 @@ const StyledWrapper = styled.div`
     text-align: center;
     font-size: 10px;
     color: rgb(170, 170, 170);
+    margin-bottom: 10px;
   }
 
   .social-account-container .social-accounts {
@@ -131,45 +114,34 @@ const StyledWrapper = styled.div`
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin-top: 5px;
   }
     
   .social-account-container .social-accounts .social-button {
     background: linear-gradient(45deg, rgb(0, 0, 0) 0%, rgb(112, 112, 112) 100%);
     border: 5px solid white;
-    padding: 2px;
+    padding: 5px;
     border-radius: 100%;
-    width: 40px;
-    aspect-ratio: 1;
-    display: grid;
-    place-content: center;
+    width: 45px; /* Size for the icon circle */
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
     box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 12px 10px -8px;
     transition: all 0.2s ease-in-out;
-  }
-
-  .social-account-container .social-accounts .social-button .Image {
-    fill: white;
-    margin: auto;
+    text-decoration: none;
   }
 
   .social-account-container .social-accounts .social-button:hover {
     transform: scale(1.2);
   }
 
-  .social-account-container .social-accounts .social-button:active {
-    transform: scale(0.9);
+  @media (max-width: 480px) {
+    .container {
+      padding: 20px 15px;
+      margin: 10px;
+    }
   }
-
-  .agreement {
-    display: block;
-    text-align: center;
-    margin-top: 15px;
-  }
-
-  .agreement a {
-    text-decoration: none;
-    color: #0099ff;
-    font-size: 9px;
-  }`;
+`;
 
 export default Form;

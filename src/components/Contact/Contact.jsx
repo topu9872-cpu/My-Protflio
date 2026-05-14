@@ -1,6 +1,8 @@
 import React from 'react';
 import Form from '../ui/Form';
 import ScrollFloat from '../ui/ScrollFloat';
+import ContactAnimation from '../FormAnimation/formAnimation';
+
 
 const Contact = () => {
   return (
@@ -18,7 +20,9 @@ const Contact = () => {
         </div>
    
     <div className='flex justify-between w-11/12 my-10'>
-      <div></div>
+      <div>
+        <ContactAnimation/>
+      </div>
       <div>
         <Form/>
       </div>

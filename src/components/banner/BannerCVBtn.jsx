@@ -1,34 +1,45 @@
+'use client'
 import React from "react";
+
+import { GoArrowDown } from "react-icons/go";
+import { toast } from "react-toastify";
 import styled from "styled-components";
 
 const BannerCVButton = () => {
+  const handleCVDownlod = () => {
+    toast.success("CV download started 🚀");
+  };
   return (
     <StyledWrapper>
-      <button className="text-nowrap items-center flex">
-        <svg
-          viewBox="0 0 24 24"
-          width={24}
-          height={24}
-          stroke="currentColor"
-          strokeWidth={2}
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="css-i6dzq1"
-        >
-          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-        </svg>{" "}
-        Downlod CV
-      </button>
+     <button
+  onClick={handleCVDownlod}
+  className="text-nowrap items-center z-10 flex gap-2"
+>
+  <a href="/Mehedi_Hasan_Topu_Cv.pdf" download className="flex items-center gap-2">
+    <svg
+      viewBox="0 0 24 24"
+      width={24}
+      height={24}
+      stroke="currentColor"
+      strokeWidth={2}
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+    </svg>
+
+    Download CV <GoArrowDown />
+  </a>
+</button>
     </StyledWrapper>
   );
 };
 
 const StyledWrapper = styled.div`
   button {
-  
     display: flex;
-    color:white;
+    color: white;
     align-items: center;
     justify-content: center;
     gap: 10px;

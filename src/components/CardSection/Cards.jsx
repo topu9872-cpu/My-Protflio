@@ -4,65 +4,80 @@ import { projects } from "@/lib/data";
 import Image from "next/image";
 import Link from "next/link";
 import ScrollFloat from "../ui/ScrollFloat";
-const Cards = async () => {
-  console.log(projects);
 
+const Cards = () => {
   return (
-    <div>
-         <div className="text-cyan-500">
-          <ScrollFloat 
-            animationDuration={0.2}
-            stagger={1}
-            ease='power3.out'
-            scrollStart='top bottom-=10%'
-            scrollEnd='bottom center'
-          >
-           My Projects
-          </ScrollFloat>
-         </div>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mx-auto w-11/12">
-
-
-      {projects.map((project) => (
-        <ElectricBorder
-          key={project.id}
-          className="w-62"
-          color="#7df9ff"
-          speed={1}
-          chaos={0.12}
-          thickness={2}
-          style={{ borderRadius: 10 }}
-
+    <section className="w-full py-10">
+      {/* Heading */}
+      <div className="text-cyan-500 text-center mb-10">
+        <ScrollFloat
+          animationDuration={0.2}
+          stagger={1}
+          ease="power3.out"
+          scrollStart="top bottom-=10%"
+          scrollEnd="bottom center"
         >
+          My Projects
+        </ScrollFloat>
+      </div>
 
-          
-          <div style={{ margin: "6px 0 0", opacity: 0.8 }}>
-            <div className="px-5 pt-3  rounded-xl h-90 w-60">
-             
+      {/* Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 w-11/12 mx-auto">
+        {projects.map((project) => (
+          <ElectricBorder
+            key={project.id}
+            className="w-full"
+            color="#7df9ff"
+            speed={1}
+            chaos={0.12}
+            thickness={2}
+            style={{ borderRadius: 18 }}
+          >
+            <div className="bg-black/20 backdrop-blur-md rounded-2xl overflow-hidden h-full flex flex-col">
+              {/* Image */}
+              <div className="relative w-full h-52">
                 <Image
-                  src={project?.image}
-                  width={260}
-                  height={160}
-                  alt="image"
-                  className="h-30 rounded-xl"
+                  src={project.image}
+                  fill
+                  alt={project.title}
+                  className="object-cover"
                 />
-             
-              <div className=" pt-5 w-full">
-                <h2 className="card-title">{project.title}</h2>
-                <p className="">
-                 {project.description}
+              </div>
+
+              {/* Content */}
+              <div className="p-5 flex flex-col flex-grow">
+                <h2 className="text-xl font-bold text-cyan-400">
+                  {project.title}
+                </h2>
+
+                <p className="text-sm text-gray-300 pt-3 flex-grow">
+                  {project.description}
                 </p>
-                <div className="pt-4 flex justify-start gap-2">
-                 <button className="btn btn-accent text-white "><Link href="">Live Link</Link></button>
-                  <button className="btn btn-accent text-white"><Link href="">GitHub Link</Link></button>
+
+                {/* Buttons */}
+                <div className="pt-5 flex flex-wrap gap-3">
+                  <Link
+                    href={project.liveLink || "#"}
+                    target="_blank"
+                    className="btn btn-accent text-white flex-1 min-w-[120px]"
+                  >
+                    Live Link
+                  </Link>
+
+                  <Link
+                    href={project.githubLink || "#"}
+                    target="_blank"
+                    className="btn btn-outline btn-accent flex-1 min-w-[120px]"
+                  >
+                    GitHub
+                  </Link>
                 </div>
               </div>
             </div>
-          </div>
-        </ElectricBorder>
-      ))}
-    </div>
-    </div>
+          </ElectricBorder>
+        ))}
+      </div>
+    </section>
   );
 };
 
