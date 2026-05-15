@@ -4,7 +4,7 @@ import styled from "styled-components";
 const HireButton = () => {
   return (
     <StyledWrapper>
-      <button className="text-nowrap items-center flex">
+      <button  className="text-nowrap items-center flex">
         <svg
           viewBox="0 0 24 24"
           width={24}
@@ -17,8 +17,11 @@ const HireButton = () => {
           className="css-i6dzq1 "
         >
           <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-        </svg>{" "}
-        Hire Me
+        </svg>
+        <a href="#contact"> 
+           Hire Me
+        </a>
+       
       </button>
     </StyledWrapper>
   );

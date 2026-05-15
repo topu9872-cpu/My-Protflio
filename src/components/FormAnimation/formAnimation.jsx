@@ -15,7 +15,7 @@ export default function ContactAnimation() {
   if (!anim) return <p>Loading...</p>;
 
   return (
-    <div className="flex items-center justify-center gap-10 min-h-screen">
+    <div className="flex items-center justify-center min-h-screen">
       <div className="w-80 md:w-115">
         <Lottie animationData={anim} loop />
       </div>

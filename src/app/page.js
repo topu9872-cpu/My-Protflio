@@ -1,17 +1,13 @@
-// Import your section components here
-// import Hero from "@/components/Hero";
-// import About from "@/components/About";
-// import Projects from "@/components/Projects";
-// import Contact from "@/components/Contact";
 
 import AboutMe from "@/components/AboutMe/AboutMe";
 import BannerPage from "@/components/banner/BannerPage";
 import Cards from "@/components/CardSection/Cards";
-import InteractiveCourseForm from "@/components/Contact/Contact";
+
 import Contact from "@/components/Contact/Contact";
 import Footer from "@/components/Footer/Footer";
 import TechStack from "@/components/Marquee/TechStack";
 import Navbar from "@/components/NavBar/Navbar";
+
 
 export default function Home() {
   return (

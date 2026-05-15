@@ -13,7 +13,7 @@ const Navbar = () => {
   useEffect(() => {
     const observerOptions = {
       root: null,
-      // This margin tells the browser: "Only trigger when the section is 
+      // This margin tells the browser: "Only trigger when the section is
       // in the middle 40% of the screen."
       rootMargin: "-30% 0px -30% 0px",
       threshold: 0,
@@ -60,12 +60,14 @@ const Navbar = () => {
                 <a
                   href={`#${item}`}
                   className={`capitalize text-lg font-semibold transition-colors duration-300 ${
-                    activeSection === item ? "text-sky-500" : "text-gray-400 hover:text-white"
+                    activeSection === item
+                      ? "text-sky-500"
+                      : "text-gray-400 hover:text-white"
                   }`}
                 >
                   {item}
                 </a>
-                
+
                 {/* Underline Animation */}
                 {activeSection === item && (
                   <motion.div
@@ -78,11 +80,29 @@ const Navbar = () => {
           </ul>
         </div>
 
-        {/* Right Side Buttons */}
-        <div className="flex gap-4 items-center">
-          <button className="bg-sky-600 hover:bg-sky-500 text-white px-5 py-2 rounded-lg font-medium transition-all active:scale-95">
-            Hire Me
-          </button>
+        <div className="flex gap-4  items-center">
+ <button 
+  onClick={() => window.open(process.env.NEXT_PUBLIC_WHATSAPP_URL, "_blank")} 
+  className="cursor-pointer  bg-purple-500 hover:bg-cyan-400 btn-soft shadow-[0_0_14px_#ffffff] px-6 py-3 rounded-xl text-white font-medium group"
+>
+
+  <div className="relative h-[1.5em] overflow-hidden">
+    <div className="flex flex-col transition-transform text-lg duration-1200 ease-out-expo group-hover:-translate-y-1/2">
+      
+      
+      <span className="flex h-[1.5em] items-center justify-center">
+        Hire Me
+      </span>
+      
+    
+      <span className="flex h-[1.5em] items-center justify-center">
+        Let's talk
+      </span>
+      
+    </div>
+  </div>
+</button>
+
           <ThemeBtn />
         </div>
       </div>

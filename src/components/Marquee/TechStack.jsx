@@ -75,6 +75,10 @@ const techStack = [
     name: "VS Code",
     icon: "/assrts/tool iccons/icons8-vs-code-96.png",
   },
+  {
+    name: "Better Auth",
+    icon: "/assrts/tool iccons/better-auth.png",
+  },
 ];
 
 const TechStack = () => {

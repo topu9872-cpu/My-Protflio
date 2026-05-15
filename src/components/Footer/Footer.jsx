@@ -1,4 +1,4 @@
-import { compareAsc, format } from "date-fns";
+import { format } from "date-fns";
 
 const Footer = () => {
   return (
@@ -22,7 +22,7 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* 🔗 Quick links */}
+        
         <div>
           <h2 className="text-xl font-bold mb-3">Quick Links</h2>
           <ul className="space-y-2 text-gray-300">
@@ -38,7 +38,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* 🌐 Social */}
+       
         <div>
           <h2 className="text-xl font-bold mb-3">Follow Me</h2>
 
@@ -60,7 +60,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* ✨ bottom bar */}
+     
       <div className="relative z-10 border-t border-white/10 py-6 text-center text-gray-400 text-sm">
         &copy; {`${format(new Date(), "yyyy")}`} Made with &hearts; by Mehedi Hasan Topu
       </div>
