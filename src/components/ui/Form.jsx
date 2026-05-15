@@ -1,13 +1,57 @@
+'use client'
 import Image from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 import styled from 'styled-components';
 
 const Form = () => {
+  const [loading, setLoading] = useState(false);
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  setLoading(true);
+
+  const formData = {
+    name: e.target.name.value,
+    email: e.target.email.value,
+    message: e.target.message.value,
+  };
+
+  try {
+    const res = await fetch("/api/send", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      toast.success("Message sent successfully 🚀",{
+        position:"bottom-center"
+      });
+    } else {
+      toast.error(data.message || "Failed to send message ❌",{
+        position:"bottom-center"
+      });
+    }
+
+  } catch (error) {
+    toast.error("Something went wrong ❌",{
+      position:"bottom-center"
+    });
+  } finally {
+    setLoading(false);
+  }
+};
+
   return (
     <StyledWrapper>
       <div className="container">
         <div className="heading">Contact Form</div>
-        <form className="form">
+        <form onSubmit={handleSubmit} className="form">
           <label className='flex text-cyan-500 text-lg font-bold'>Name:</label>
           <input placeholder="Name" id="name" name="name" type="text" className="input text-lg text-purple-500 font-semibold" required />
           
@@ -15,9 +59,9 @@ const Form = () => {
           <input placeholder="E-mail" id="email" name="email" type="email" className="input text-lg text-purple-500 font-semibold" required />
 
           <label className='flex text-cyan-500 text-lg font-bold mt-2'>Message:</label>
-          <textarea rows='4' cols='5' placeholder="Message" id="text-area" name="text-area" className='w-full placeholder:text-taupe-400 shadow-[0_0_10px_white] text-lg text-purple-500 font-semibold mt-2 rounded-2xl px-2 border-2' />
+          <textarea rows='4' cols='5' placeholder="Message" id="text-area" name="message" className='w-full placeholder:text-taupe-400 shadow-[0_0_10px_white] text-lg text-purple-500 font-semibold mt-2 rounded-2xl px-2 border-2' />
 
-          <button type="submit" className="login-button">Send Message</button>
+          <button  disabled={loading}  type="submit" className="login-button z-50"> {loading ? "Sending..." : "Send Message"}</button>
         </form>
 
       
@@ -25,7 +69,7 @@ const Form = () => {
           <span className="title">Or Contact in with</span>
           <div className="social-accounts">
             
-            <a href="mailto:mehedihasant270@gmail.com" className="social-button google">
+            <a href="mailto:topu9872@gmail.com?subject=Portfolio%20Contact&body=Hi%20Topu,%0D%0A%0D%0AI%20am%20reaching%20out%20from%20your%20portfolio." className="social-button google">
               <Image src="/assrts/tool iccons/icons8-gmail-logo-100.png" height={40} width={40} alt="gmail" className='object-cover' />
             </a>
 

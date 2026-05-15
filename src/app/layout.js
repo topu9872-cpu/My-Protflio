@@ -2,6 +2,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./Providers";
 import { ToastContainer } from "react-toastify";
+import { Toaster } from "react-hot-toast";
 
 
 
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning className={`${poppins.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans">
         < Providers>
+        <Toaster/>
         <ToastContainer/>
           {children}
         </Providers>
