@@ -57,17 +57,17 @@ const Cards = () => {
                 {/* Buttons */}
                 <div className="pt-5 flex flex-wrap gap-3">
                   <Link
-                    href={project.liveLink || "#"}
+                    href={project?.liveLink}
                     target="_blank"
-                    className="btn btn-accent text-white flex-1 min-w-[120px]"
+                    className="btn btn-accent text-white flex-1 min-w-30"
                   >
                     Live Link
                   </Link>
 
                   <Link
-                    href={project.githubLink || "#"}
+                    href={project?.githubLink}
                     target="_blank"
-                    className="btn btn-outline btn-accent flex-1 min-w-[120px]"
+                    className="btn btn-outline btn-accent flex-1 min-w-30"
                   >
                     GitHub
                   </Link>
